@@ -10,6 +10,17 @@ public class User {
     private int id;
     @Column
     private String name;
+
+    @Column
+    private String phone;
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public User(){}
 
     public int getId() {
