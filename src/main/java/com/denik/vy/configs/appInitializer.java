@@ -2,7 +2,7 @@ package com.denik.vy.configs;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class appInit extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class appInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
