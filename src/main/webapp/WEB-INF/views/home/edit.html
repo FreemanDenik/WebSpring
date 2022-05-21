@@ -12,9 +12,9 @@
     <a href="/users">Users</a>
     <hr/>
     <form th:action="@{/edit/{id}(id=${model.getId()})}" method="post">
-        <label>Id</label><br/>
-        <input disabled th:value="${model.id}">
-        <br/><br/>
+        <div><b>Id: </b> <u th:text="${model.id}"></u></div>
+
+
         <label>name</label><br/>
         <input th:field="*{model.name}" >
         <br/><br/>
