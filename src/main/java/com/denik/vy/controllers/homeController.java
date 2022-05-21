@@ -34,21 +34,21 @@ public class homeController {
         userService.addUser(user);
         return "redirect:/users";
     }
-    @GetMapping("/edit")
-    public String edit(ModelMap model, int id) {
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") int id, ModelMap model) {
 
         User user = userService.getUser(id);
         model.addAttribute("model", user);
         return "home/edit";
     }
-    @PostMapping("/edit")
-    public String edit(User user) {
+    @PostMapping("/edit/{id}")
+    public String edit(@PathVariable("id") int id, User user) {
 
-        userService.editUser(user);
+        userService.editUser(id, user);
         return "redirect:/users";
     }
-    @PostMapping("/delete")
-    public String delete(int id) {
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id) {
 
         userService.deleteUser(id);
         return "redirect:/users";

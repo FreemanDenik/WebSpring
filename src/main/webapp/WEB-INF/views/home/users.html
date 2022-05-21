@@ -38,17 +38,12 @@
                     <div th:text="${user.getPhone()}"></div>
                 </td>
                 <td>
-                    <form action="/edit" method="get">
-                        <input type="hidden" name="id" th:value="${user.id}">
-                        <input type="submit" value="edit">
-                    </form>
+                    <a th:href="@{/edit/{id}(id=${user.getId()})}">edit</a>
                 </td>
                 <td>
-                    <form action="/delete" method="post">
-                        <input type="hidden" name="id" th:value="${user.id}">
+                    <form th:action="@{/delete/{id}(id=${user.getId()})}" method="post">
                         <input type="submit" value="delete">
                     </form>
-
                 </td>
             </tr>
         </th:block>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -26,11 +27,13 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void editUser(User user) {
-        User u = userRepository.findById(user.getId()).get();
-        u.setName(user.getName());
-        u.setPhone(user.getPhone());
-        userRepository.save(u);
+    public void editUser(int id, User user) {
+        User usr = userRepository.findById(id).orElse(null);
+        if (!Objects.isNull(usr)) {
+            usr.setName(user.getName());
+            usr.setPhone(user.getPhone());
+            userRepository.save(usr);
+        }
     }
 
     @Override
